@@ -1,4 +1,4 @@
-FROM ruby:2.6.3
+FROM ruby:2.7.4
 
 WORKDIR /usr/src/app
 
@@ -16,6 +16,19 @@ RUN apt-get clean
 
 RUN npm install -g yarn
 
-RUN gem install rails -v 6.0.3
+# RUN gem install rails -v 6.0.3
+RUN gem install rails
 
-# RUN bundle install
+COPY Gemfile /usr/src/app/Gemfile
+COPY Gemfile.lock /usr/src/app/Gemfile.lock
+
+RUN bundle install
+
+RUN yarn
+
+COPY entrypoint.sh /usr/bin/entrypoint.sh
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+EXPOSE 3000
+
+CMD ["rails", "server", "-b", "0.0.0.0"]
