@@ -20,7 +20,7 @@ RUN gem install rails -v 6.1.4
 COPY Gemfile /usr/src/app/Gemfile
 COPY Gemfile.lock /usr/src/app/Gemfile.lock
 
-RUN bundle install --without production
+RUN bundle install
 
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
