@@ -1,5 +1,15 @@
 version: "3"
 services:
+  db:
+    image: postgres:12.7-alpine
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    restart: always
   web:
     build: .
     volumes:
@@ -9,13 +19,10 @@ services:
       - 3000:3000
     tty: true
     stdin_open: true
-#   depends_on:
-#     - db
-#   db:
-#     image: mysql:5.7
-#     volumes:
-#       - db-volume:/var/lib/mysql
-#     environment:
-#       MYSQL_ROOT_PASSWORD: password
-# volumes:
-#   db-volume:
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: password
+    depends_on:
+      - db
