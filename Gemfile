@@ -7,6 +7,8 @@ ruby '2.7.4'
 gem 'rails', '~> 6.1.4'
 gem 'bcrypt', '~> 3.1'
 gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
