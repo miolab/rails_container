@@ -1,7 +1,24 @@
-# Rails Container
+# README
 
-WIP
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-### refs
-- https://github.com/miolab/ruby_rails_memo
-- https://railstutorial.jp/chapters/beginning?version=5.1
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
